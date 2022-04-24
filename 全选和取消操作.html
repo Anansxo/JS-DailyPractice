@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <form method="post">
+        <input type="checkbox" class="checkBoxAll" />喜欢吃的水果：
+        <input type="checkbox" name="items" value="橘子">橘子
+        <input type="checkbox" name="items" value="香蕉">香蕉
+        <input type="checkbox" name="items" value="凤梨">凤梨
+        <br />
+        <input type="button" class="checkAllBtn" value="全选" />
+        <input type="button" class="checkNoBtn" value="不选" />
+    </form>
+
+    <script type="text/javascript">
+        // 立即执行函数
+        (function () {
+            var oCheckAllBox = document.getElementsByClassName('checkBoxAll')[0],
+                oCheckALlBtn = document.getElementsByClassName('checkAllBtn')[0],
+                oCheckNoBtn = document.getElementsByClassName('checkNoBtn')[0],
+                oItems = document.getElementsByName('items'),
+                checkItems = oItems.length;
+
+            /* 全选功能 */
+            oCheckALlBtn.onclick = function () {
+
+                for (var i = 0; i < checkItems; i++) {
+                    oItems[i].checked = true;
+                }
+                oCheckAllBox.checked = true;
+            }
+
+            /* 全不选 */
+            oCheckNoBtn.onclick = function () {
+                for (var i = 0; i < checkItems; i++) {
+                    oItems[i].checked = false;
+                }
+                oCheckAllBox.checked = false;
+            }
+
+            /* oCheckAllBox 总选框 */
+            oCheckAllBox.onclick = function () {
+                for (var i = 0; i < checkItems; i++) {
+                    oItems[i].checked = this.checked;
+                }
+            }
+
+            for (var i = 0; i < checkItems; i++) {
+
+                oItems[i].onclick = function () {
+                    oCheckAllBox.checked = true;
+
+                    for (var j = 0; j < checkItems; j++) {
+                        if (!oItems[j].checked) {
+                            oCheckAllBox.checked = false;
+                        }
+                    }
+                }
+            }
+        })();
+    </script>
+</body>
+
+</html>
