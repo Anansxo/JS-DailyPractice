@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>防抖</title>
+</head>
+
+<body>
+	<input type="text">
+	<script>
+		// 防抖：在一定的时间间隔内，将多次触发的事件操作变成一次触发操作
+		const inp = document.querySelector('input')
+		// 调用防抖函数 debounce(形参1 fn,形参2 dalay)
+		inp.oninput = debounce(function () {
+			console.log(this.value);
+		}, 1000)
+
+		function debounce(fn, dalay) {
+			let t = null;
+			return function () {
+				// 如果t不等于null清除定时器t
+				if (t !== null) {
+					clearTimeout(t)
+				}
+				t = setTimeout(() => {
+					// 调用形参1并改变this指向inp
+					fn.call(this)
+				}, dalay)
+			}
+		}
+	</script>
+</body>
+
+</html>
