@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>数组去重+排序</title>
+</head>
+
+<body>
+	<script>
+		const arr = [3, 5, 2, 1, 15, 3, 7, 0, 1, 8, 6, 4, 3, 9, 9]
+		// Set去重之后用Array.from方法转换为数组
+		const removal = new Set(arr)
+		const removalResult = Array.from(removal)
+		console.log(removalResult, '去重/未排序'); 
+		for (let i = 0; i < removalResult.length; i++) {
+			for (let j = 0; j < removalResult.length - 1 - i; j++) {
+				if (removalResult[j] > removalResult[j + 1]) {
+					let temp = removalResult[j]
+					removalResult[j] = removalResult[j + 1]
+					removalResult[j + 1] = temp
+				}
+			}
+		}
+		console.log(removalResult, '去重/排序后'); 
+	</script>
+</body>
+
+</html>
