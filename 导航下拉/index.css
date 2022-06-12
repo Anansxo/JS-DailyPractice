@@ -1,0 +1,84 @@
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+body {
+	background-color: #C2DED1;
+	user-select: none
+}
+
+ul {
+	list-style: none;
+}
+
+a {
+	text-decoration: none;
+}
+
+/* 包裹盒子 */
+.nav-box {
+	width: 300px;
+	height: 300px;
+	margin: 200px auto;
+	overflow: hidden;
+}
+
+/* 显示模块 */
+.nav {
+	width: 100%;
+	height: 40px;
+	line-height: 40px;
+	border-radius: 10px;
+	background-color: #FFE3A9;
+}
+
+/* 内容 */
+.left-content {
+	width: 90%;
+	float: left;
+	padding-left: 1em;
+	font-size: 20px;
+	color: 354259;
+	display: flex;
+	align-items: center;
+}
+
+
+
+/* 切换图标 */
+i {
+	cursor: pointer;
+	width: 10%;
+}
+
+/*  包裹菜单 */
+.nav-list {
+	border-radius: 10px;
+	margin-top: 5px;
+	padding: 8px;
+	background-color: #FFC3C3;
+}
+
+/* 内容 */
+.list {
+	width: 100%;
+	height: 40px;
+	margin: 5px 0;
+	line-height: 40px;
+	border-radius: 5px;
+	background-color: #FFE6E6;
+}
+.list:hover {
+	border: 2px solid rgba(184, 135, 11, 0.747);
+}
+
+/* 文字颜色 */
+a {
+	display: block;
+	color: #728fc0;
+	padding-left: 10px;
+	font-size: 20px;
+	width: 100%;
+}
